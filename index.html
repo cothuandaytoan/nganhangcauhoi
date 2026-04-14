@@ -3,418 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ngân Hàng Câu Hỏi Toán THPT</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Ngân Hàng Câu Hỏi</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Times New Roman', serif;
-            background-color: #ffffff;
-            padding: 40px;
-            line-height: 1.8;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 50px;
-            color: #000;
-        }
-        
-        h2 {
-            font-size: 1.8em;
-            font-weight: bold;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: #000;
-        }
-        
-        .filter-section {
-            margin-bottom: 40px;
-        }
-        
-        .filter-group {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .filter-group label {
-            font-size: 1.1em;
-            min-width: 150px;
-        }
-        
-        .filter-group select {
-            padding: 8px 12px;
-            font-size: 1em;
-            border: 2px solid #000;
-            font-family: Arial, sans-serif;
-            min-width: 300px;
-        }
-        
-        .filter-group input[type="number"] {
-            padding: 8px 12px;
-            font-size: 1em;
-            border: 2px solid #000;
-            font-family: Arial, sans-serif;
-            width: 100px;
-        }
-        
-        button {
-            padding: 8px 20px;
-            font-size: 1em;
-            border: 2px solid #000;
-            background-color: #ffffff;
-            cursor: pointer;
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-        }
-        
-        button:hover {
-            background-color: #f0f0f0;
-        }
-        
-        .button-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .questions-container {
-            margin-top: 50px;
-        }
-        
-        .question-card {
-            margin-bottom: 40px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #fafafa;
-        }
-        
-        .question-number {
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        
-        .question-meta {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
-        .question-text {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-        
-        .options {
-            margin-left: 20px;
-        }
-        
-        .option {
-            margin-bottom: 12px;
-            font-size: 1em;
-            line-height: 1.6;
-        }
-        
-        .option-label {
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        
-        .statement-group {
-            margin-bottom: 15px;
-            padding: 12px;
-            background-color: #fff;
-            border-left: 3px solid #999;
-        }
-        
-        .statement-text {
-            margin-bottom: 8px;
-            font-size: 1em;
-        }
-        
-        .true-false-buttons {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .true-false-buttons button {
-            padding: 6px 15px;
-            font-size: 0.9em;
-            min-width: auto;
-        }
-        
-        .short-answer-input {
-            padding: 8px 12px;
-            font-size: 1em;
-            border: 2px solid #000;
-            width: 120px;
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-        
-        .answer-hint {
-            font-style: italic;
-            color: #666;
-            margin-left: 15px;
-            font-size: 0.95em;
-        }
-        
-        .short-answer-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 12px;
-        }
-        
-        .math-content {
-            display: inline;
-        }
-        
-        .stats {
-            margin-bottom: 30px;
-            font-weight: bold;
-            font-size: 1.1em;
-            padding: 15px;
-            background-color: #e8f4f8;
-            border: 1px solid #999;
-        }
-        
-        footer {
-            margin-top: 80px;
-            padding-top: 20px;
-            border-top: 1px solid #ccc;
-            font-size: 0.95em;
-            color: #666;
-        }
-        
-        @media (max-width: 768px) {
-            .filter-group {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .filter-group select,
-            .filter-group input {
-                min-width: 100%;
-            }
-            
-            .button-group {
-                flex-direction: column;
-            }
-            
-            button {
-                width: 100%;
-            }
-            
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            h2 {
-                font-size: 1.4em;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; }
+        h1 { color: #333; margin-bottom: 30px; }
+        .filter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        select, input { padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 100%; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; margin: 10px 5px 0 0; }
+        button:hover { background: #0056b3; }
+        .question-card { margin: 20px 0; padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; }
+        .option { margin: 10px 0; padding: 10px; background: white; border-left: 3px solid #ddd; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Ngân Hàng Câu Hỏi Toán THPT</h1>
+        <h1>📚 Ngân Hàng Câu Hỏi Toán THPT</h1>
         
-        <h2>Câu Hỏi</h2>
-        
-        <div class="filter-section">
-            <div class="filter-group">
-                <label for="chapter">Chương:</label>
+        <div class="filter-grid">
+            <div>
+                <label>Chương:</label>
                 <select id="chapter">
-                    <option value="">-- Chọn Chương --</option>
+                    <option value="">Chọn Chương</option>
                     <option value="1">Chương 1: Khảo sát hàm số</option>
-                    <option value="2">Chương 2: Hàm số lũy thừa, mũ, logarit</option>
-                    <option value="3">Chương 3: Phương trình và bất phương trình</option>
                 </select>
             </div>
-            
-            <div class="filter-group">
-                <label for="lesson">Bài:</label>
+            <div>
+                <label>Bài:</label>
                 <select id="lesson">
-                    <option value="">-- Chọn Bài --</option>
-                    <option value="1">Bài 1: Tính đơn điệu và cực trị</option>
-                    <option value="2">Bài 2: Giá trị lớn nhất, nhỏ nhất</option>
+                    <option value="">Chọn Bài</option>
+                    <option value="1">Bài 1: Tính đơn điệu</option>
                 </select>
             </div>
-            
-            <div class="filter-group">
-                <label for="type">Dạng câu hỏi:</label>
+            <div>
+                <label>Dạng:</label>
                 <select id="type">
-                    <option value="">-- Chọn Dạng --</option>
+                    <option value="">Chọn Dạng</option>
                     <option value="trac-nghiem">Trắc nghiệm</option>
-                    <option value="dung-sai">Đúng - Sai</option>
-                    <option value="tra-loi-ngan">Trả lời ngắn</option>
                 </select>
             </div>
-            
-            <div class="filter-group">
-                <label for="quantity">Số câu hỏi:</label>
-                <input type="number" id="quantity" min="1" max="50" value="5">
-            </div>
-            
-            <div class="button-group">
-                <button onclick="generateQuestions()">Tạo Đề</button>
-                <button onclick="resetFilters()">Đặt lại</button>
+            <div>
+                <label>Số câu:</label>
+                <input type="number" id="quantity" value="5" min="1" max="50">
             </div>
         </div>
         
-        <h2>Danh Sách Câu Hỏi</h2>
-        <div class="questions-container" id="questionsContainer"></div>
+        <button onclick="generate()">Tạo Đề</button>
+        <button onclick="reset()">Đặt lại</button>
         
-        <footer>
-            © 2026 Ngân Hàng Câu Hỏi. Tất cả quyền được bảo lưu.
-        </footer>
+        <div id="questions"></div>
     </div>
 
     <script>
-        const questionDatabase = {
+        const data = {
             "1_1_trac-nghiem": [
-                {
-                    question: "Tìm miền xác định của hàm số $$f(x) = \\frac{1}{x - 1}$$",
-                    options: ["$$(-\\infty, 1) \\cup (1, +\\infty)$$", "$$(-\\infty, +\\infty)$$", "$$(1, +\\infty)$$", "$$(-\\infty, 1)$$"]
-                },
-                {
-                    question: "Giá trị nhỏ nhất của $$f(x) = x^2 - 4x + 7$$",
-                    options: ["3", "7", "-1", "2"]
-                },
-                {
-                    question: "Hàm số $$f(x) = -x^2 + 4x$$ có cực đại tại",
-                    options: ["$$x = 2$$", "$$x = 1$$", "$$x = 0$$", "Không có"]
-                }
-            ],
-            "1_1_dung-sai": [
-                {
-                    question: "Cho $$f(x) = x^3 - 3x^2 + 2$$. Xét các phát biểu:",
-                    statements: ["Đồng biến trên $$(-\\infty, 0)$$", "Nghịch biến trên $$(0, 2)$$", "$$f(-1) > f(0)$$", "Cực đại tại $$x=0$$, $$f(0)=2$$"]
-                },
-                {
-                    question: "Cho $$f'(x) = 3x^2 - 6x$$. Xét các phát biểu:",
-                    statements: ["$$f'(x)=0$$ tại $$x=0$$ hoặc $$x=2$$", "Đồng biến $$(-\\infty,0)$$", "Nghịch biến $$(0,2)$$", "$$f(0)>f(1)$$"]
-                }
-            ],
-            "1_1_tra-loi-ngan": [
-                {
-                    question: "Tìm $$m$$ để xác định trên các khoảng",
-                    answer: "-2.5",
-                    hint: "(làm tròn đến hàng phần mười)"
-                },
-                {
-                    question: "Tính $$P = ay_1 + by_2$$",
-                    answer: "-1.33",
-                    hint: "(làm tròn đến hàng phần trăm)"
-                },
-                {
-                    question: "Tìm giá trị cần tính",
-                    answer: "5.42",
-                    hint: "(làm tròn đến hàng phần mười)"
-                }
+                { q: "Tìm miền xác định của $$f(x) = \\frac{1}{x-1}$$", opts: ["$(-\\infty,1)\\cup(1,+\\infty)$", "$(-\\infty,+\\infty)$", "$(1,+\\infty)$"] }
             ]
         };
 
-        function generateQuestions() {
-            const chapter = document.getElementById('chapter').value;
-            const lesson = document.getElementById('lesson').value;
-            const type = document.getElementById('type').value;
-            const quantity = parseInt(document.getElementById('quantity').value) || 5;
-
-            if (!chapter || !lesson || !type) {
-                alert('Vui lòng chọn Chương, Bài và Dạng!');
-                return;
-            }
-
-            const key = `${chapter}_${lesson}_${type}`;
-            const questions = questionDatabase[key] || [];
-
-            if (questions.length === 0) {
-                alert('Không có câu hỏi!');
-                return;
-            }
-
-            const selected = [];
-            for (let i = 0; i < Math.min(quantity, questions.length); i++) {
-                const randomIndex = Math.floor(Math.random() * questions.length);
-                selected.push(questions[randomIndex]);
-            }
-
-            displayQuestions(selected, chapter, lesson, type);
-        }
-
-        function displayQuestions(questions, chapter, lesson, type) {
-            const container = document.getElementById('questionsContainer');
-            let html = `<div class="stats">Tổng cộng: ${questions.length} câu hỏi</div>`;
-
-            questions.forEach((q, index) => {
-                html += `
-                    <div class="question-card">
-                        <div class="question-number">Câu ${index + 1}</div>
-                        <div class="question-meta">Chương ${chapter} - Bài ${lesson}</div>
-                        <div class="question-text">${q.question}</div>
-                `;
-                
-                if (type === 'dung-sai') {
-                    html += `<div class="options">`;
-                    q.statements.forEach((stmt, i) => {
-                        html += `
-                            <div class="statement-group">
-                                <div class="statement-text"><strong>${String.fromCharCode(65+i)}.</strong> ${stmt}</div>
-                                <div class="true-false-buttons">
-                                    <button>Đúng</button>
-                                    <button>Sai</button>
-                                </div>
-                            </div>
-                        `;
-                    });
-                    html += `</div>`;
-                } else if (type === 'tra-loi-ngan') {
-                    html += `
-                        <div class="short-answer-box">
-                            <input type="text" class="short-answer-input" placeholder="Nhập đáp án" maxlength="4">
-                            <span class="answer-hint">${q.hint}</span>
-                        </div>
-                    `;
-                } else {
-                    html += `<div class="options">`;
-                    q.options.forEach((opt, i) => {
-                        html += `<div class="option"><span class="option-label">${String.fromCharCode(65+i)}.</span> ${opt}</div>`;
-                    });
-                    html += `</div>`;
-                }
-                
-                html += `</div>`;
+        function generate() {
+            const c = document.getElementById('chapter').value;
+            const l = document.getElementById('lesson').value;
+            const t = document.getElementById('type').value;
+            
+            if(!c || !l || !t) { alert('Chọn đầy đủ!'); return; }
+            
+            const key = `${c}_${l}_${t}`;
+            const qs = data[key] || [];
+            
+            let html = '<h2>Câu hỏi</h2>';
+            qs.forEach((q, i) => {
+                html += `<div class="question-card">
+                    <strong>Câu ${i+1}:</strong> ${q.q}
+                    <div class="options">`;
+                q.opts.forEach((o, j) => {
+                    html += `<div class="option"><input type="radio" name="q${i}"> ${String.fromCharCode(65+j)}. ${o}</div>`;
+                });
+                html += '</div></div>';
             });
-
-            container.innerHTML = html;
+            
+            document.getElementById('questions').innerHTML = html;
             MathJax.typesetPromise();
         }
 
-        function resetFilters() {
+        function reset() {
             document.getElementById('chapter').value = '';
             document.getElementById('lesson').value = '';
             document.getElementById('type').value = '';
-            document.getElementById('quantity').value = '5';
-            document.getElementById('questionsContainer').innerHTML = '';
+            document.getElementById('questions').innerHTML = '';
         }
     </script>
 </body>
